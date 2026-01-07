@@ -23,7 +23,7 @@
     - <a href="https://github.com/takahasihiroyuki/Island-Flight" target="_blank"> https://github.com/takahasihiroyuki/Island-Flight</a>
 ## 2.ゲーム内容
 時間内にたくさんコインを集めよう！
-![alt text](<スクリーンショット (3)-1.png>)
+![alt text](<GameScreen.png>)
 ## 3.技術紹介
 ### 3.1 飛行機の物理挙動の実装
 #### 3.1.1 飛行機の挙動の実装アプローチ
@@ -91,7 +91,7 @@
 機体の姿勢を毎フレーム更新しています。
 
 #### 3.1.6 デバッグ方法
-![alt text](<Game.exe 2025.12.26 - 11.15.59.01.gif>)  
+![alt text](<DebugView.gif>)  
 本作では、
 力やモーメントといった物理量を扱っているため、
 数値だけを追っていても挙動の原因を把握しにくい場面が多くありました。 
@@ -154,8 +154,8 @@
 という描画になってしまいます。 
 
 <div style="display: flex; gap: 16px;">
-  <img src="スクリーンショット (8)-1.png" width="50%">
-  <img src="スクリーンショット (10)-1.png" width="50%">
+  <img src="PointOffPlane.png" width="50%">
+  <img src="PointOnPlane.png" width="50%">
 </div>
 これは図のように近クリップ面が海面と一致しないため起こっています。
 
@@ -164,8 +164,8 @@
 そこで、近平面波つかわず、シェーダー側で海面より下にあるかどうかを判定して描画を止める方法をとりました。
 
 <div style="display: flex; gap: 16px;">
-  <img src="スクリーンショット (4)-1.png" width="50%">
-  <img src="スクリーンショット (5)-1.png" width="50%">
+  <img src="SpherePlaneIntersection_Invalid.png.png" width="50%">
+  <img src="SpherePlaneIntersection_Valid.png.png" width="50%">
 </div>
 まず、海面を 1 枚の平面 として考えます。
 （海面であるため、無限に続く平面として扱います。）
