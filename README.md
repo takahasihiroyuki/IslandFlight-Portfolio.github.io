@@ -23,7 +23,7 @@
     - <a href="https://github.com/takahasihiroyuki/Island-Flight" target="_blank"> https://github.com/takahasihiroyuki/Island-Flight</a>
 ## 2.ゲーム内容
 時間内にたくさんコインを集めよう！
-![alt text](<GameScreen.png>)
+![alt text](<Images/GameScreen.png>)
 ## 3.技術紹介
 ### 3.1 飛行機の物理挙動の実装
 #### 3.1.1 飛行機の挙動の実装アプローチ
@@ -154,8 +154,8 @@
 という描画になってしまいます。 
 
 <div style="display: flex; gap: 16px;">
-  <img src="PointOffPlane.png" width="50%">
-  <img src="PointOnPlane.png" width="50%">
+  <img src="Images/PointOffPlane.png" width="50%">
+  <img src="Images/PointOnPlane.png" width="50%">
 </div>
 これは図のように近クリップ面が海面と一致しないため起こっています。
 
@@ -164,8 +164,8 @@
 そこで、近平面波つかわず、シェーダー側で海面より下にあるかどうかを判定して描画を止める方法をとりました。
 
 <div style="display: flex; gap: 16px;">
-  <img src="SpherePlaneIntersection_Invalid.png.png" width="50%">
-  <img src="SpherePlaneIntersection_Valid.png.png" width="50%">
+  <img src="Images/SpherePlaneIntersection_Invalid.png.png" width="50%">
+  <img src="Images/SpherePlaneIntersection_Valid.png.png" width="50%">
 </div>
 まず、海面を 1 枚の平面 として考えます。
 （海面であるため、無限に続く平面として扱います。）
