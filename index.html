@@ -181,12 +181,17 @@
 <li>VisualStudio2026</li>
 </ul>
 </li>
+<li>GitHubリンク
+<ul>
+<li><a href="https://github.com/takahasihiroyuki/Island-Flight" target="_blank"> https://github.com/takahasihiroyuki/Island-Flight</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h2 id="2ゲーム内容">2.ゲーム内容</h2>
 <p>時間内にたくさんコインを集めよう！
-<img src="file:///c:\Users\高橋拓之\Desktop\ポートフォリオ\%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%20(3)-1.png" alt="alt text"></p>
+<img src="GameScreen.png" alt="alt text"></p>
 <h2 id="3技術紹介">3.技術紹介</h2>
 <h3 id="31-飛行機の物理挙動の実装">3.1 飛行機の物理挙動の実装</h3>
 <h4 id="311-飛行機の挙動の実装アプローチ">3.1.1 飛行機の挙動の実装アプローチ</h4>
@@ -242,7 +247,7 @@
 さらに、この角速度を積分することで、
 機体の姿勢を毎フレーム更新しています。</p>
 <h4 id="316-デバッグ方法">3.1.6 デバッグ方法</h4>
-<p><img src="file:///c:\Users\高橋拓之\Desktop\ポートフォリオ\Game.exe%202025.12.26%20-%2011.15.59.01.gif" alt="alt text"><br>
+<p><img src="DebugView.gif" alt="alt text"><br>
 本作では、
 力やモーメントといった物理量を扱っているため、
 数値だけを追っていても挙動の原因を把握しにくい場面が多くありました。
@@ -298,15 +303,15 @@
 </ul>
 <p>という描画になってしまいます。</p>
 <div style="display: flex; gap: 16px;">
-  <img src="file:///c:\Users\高橋拓之\Desktop\ポートフォリオ\image-2.png" width="50%">
-  <img src="file:///c:\Users\高橋拓之\Desktop\ポートフォリオ\image-3.png" width="50%">
+  <img src="PointOffPlane.png" width="50%">
+  <img src="PointOnPlane.png" width="50%">
 </div>
 これは図のように近クリップ面が海面と一致しないため起こっています。
 <h4 id="323-描画時の問題の解決策">3.2.3 描画時の問題の解決策</h4>
 <p>そこで、近平面波つかわず、シェーダー側で海面より下にあるかどうかを判定して描画を止める方法をとりました。</p>
 <div style="display: flex; gap: 16px;">
-  <img src="file:///c:\Users\高橋拓之\Desktop\ポートフォリオ\image-4.png" width="50%">
-  <img src="file:///c:\Users\高橋拓之\Desktop\ポートフォリオ\image-5.png" width="50%">
+  <img src="SpherePlaneIntersection_Invalid.png.png" width="50%">
+  <img src="SpherePlaneIntersection_Valid.png.png" width="50%">
 </div>
 まず、海面を 1 枚の平面 として考えます。
 （海面であるため、無限に続く平面として扱います。）
