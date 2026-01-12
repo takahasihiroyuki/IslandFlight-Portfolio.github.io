@@ -1,0 +1,287 @@
+/* =========================================================
+   IslandFlight Portfolio CSS
+   Theme: Equilateral Triangle Tile (Seamless) + Drift Down-Right
+   ========================================================= */
+
+   :root{
+  --tri-line: rgba(30,111,163,0.055); /* ←ここが三角形の線の色 */
+}
+/* =========================================
+   1. 印刷・PDF化の設定
+   ========================================= */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  html, body {
+    animation: none !important;
+    background: #ffffff !important;
+  }
+  body {
+    box-shadow: none !important;
+    margin: 0 !important;
+    max-width: none !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* =========================================
+   2. 背景（正三角形タイル + 右下ドリフト）
+   ========================================= */
+/* 正三角形グリッド（タイル）
+   - 0°, 60°, -60° の3方向の細線だけで構成（超シンプル）
+   - repeating-linear-gradient なので継ぎ目が出ません
+*/
+@keyframes triDriftDownRight {
+  0%   { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 520px 520px, 520px 520px, 520px 520px; } /* 右下へ “もうちょっと” 動かす */
+}
+
+html {
+  height: 100%;
+  background-color: #e0f5f9;
+
+  /* 正三角形グリッド（数学的に正しい） */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      var(--tri-line) 0px,
+      var(--tri-line) 1px,
+      transparent 1px,
+      transparent 48px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      var(--tri-line) 0px,
+      var(--tri-line) 1px,
+      transparent 1px,
+      transparent 48px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      var(--tri-line) 0px,
+      var(--tri-line) 1px,
+      transparent 1px,
+      transparent 48px
+    );
+
+  /* 正三角形の幾何条件を満たすサイズ */
+  background-size:
+    96px calc(96px * 0.866),
+    96px calc(96px * 0.866),
+    96px calc(96px * 0.866);
+
+    /*右下に流す*/
+  animation: triDriftDownRight 30s linear infinite;
+}
+
+/* =========================================
+   3. 本文（紙）エリア
+   ========================================= */
+body {
+  font-size: 20px;
+  line-height: 1.85;
+  max-width: 900px;
+
+  margin: 40px auto;
+  padding: 42px;
+
+  background: rgba(255,255,255,0.965);
+  border-radius: 14px;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.16);
+
+  color: #1f2a33;
+  font-family:
+    "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP",
+    "Yu Gothic",
+    "Segoe UI",
+    sans-serif;
+
+  box-sizing: border-box;
+}
+
+::selection { background: rgba(79,179,217,0.28); }
+
+/* =========================================
+   4. 見出し
+   ========================================= */
+h1, h2, h3 {
+  color: #1e6fa3;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2.35em;
+  text-align: center;
+  border-bottom: 3px solid rgba(1, 51, 83, 0.3);
+  padding-bottom: 16px;
+  margin: 0 0 1.2em 0;
+}
+
+h2 {
+  font-size: 1.75em;
+  margin-top: 2.2em;
+  padding-left: 18px;
+  border-left: 10px solid rgba(79,179,217,0.95);
+  background: linear-gradient(to right, rgba(79,179,217,0.14), transparent);
+}
+
+h3 {
+  font-size: 1.35em;
+  margin-top: 1.6em;
+  border-bottom: 3px dotted rgba(30,111,163,0.5);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+h3 + p {
+  margin-top: 0.45em;
+  margin-left: 1.4em;
+}
+
+h4 {
+  font-size: 1.15em;
+  background: rgba(79,179,217,0.10);
+  border-left: 8px solid rgba(79,179,217,0.95);
+  padding: 12px 16px;
+  margin-top: 36px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* =========================================
+   5. テキスト・リンク
+   ========================================= */
+p { margin: 0.95em 0; }
+
+a {
+  color: #1e6fa3;
+  font-weight: 700;
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 2px dotted #1e6fa3;
+}
+
+blockquote {
+  margin: 1.1em 0;
+  padding: 0.9em 1.0em;
+  border-left: 5px solid rgba(79,179,217,0.85);
+  background: rgba(79,179,217,0.08);
+  border-radius: 10px;
+}
+
+/* =========================================
+   6. コード
+   ========================================= */
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+code {
+  background: rgba(0,0,0,0.06);
+  padding: 0.12em 0.35em;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.10);
+}
+
+pre {
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 12px;
+  padding: 14px 16px;
+  overflow: auto;
+  line-height: 1.65;
+}
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* =========================================
+   7. 画像
+   ========================================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 36px auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 36px 0;
+  flex-wrap: wrap;
+}
+.image-row img { margin: 0; }
+
+/* =========================================
+   8. リスト
+   ========================================= */
+ul, ol { padding-left: 1.5em; }
+li { margin-bottom: 0.55em; }
+
+/* =========================================
+   9. テーブル
+   ========================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 12px;
+  overflow: hidden;
+}
+th, td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+th {
+  background: rgba(79,179,217,0.18);
+  text-align: left;
+}
+tr:nth-child(even) td {
+  background: rgba(0,0,0,0.02);
+}
+tr:last-child td { border-bottom: none; }
+
+/* =========================================
+   10. レイアウト補助
+   ========================================= */
+.two-column {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.two-column .text-area {
+  flex: 1;
+  min-width: 280px;
+}
+.two-column .img-area {
+  flex: 0 0 380px;
+  text-align: center;
+}
+
+/* =========================================
+   11. スマホ最適化
+   ========================================= */
+@media (max-width: 640px) {
+  body {
+    margin: 16px auto;
+    padding: 18px;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+  h1 { font-size: 2.0em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.2em; }
+}
