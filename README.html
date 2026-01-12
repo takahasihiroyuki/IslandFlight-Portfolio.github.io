@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<link rel="stylesheet" href="style.css">
+# 「IslandFlight」ポートフォリオ
+## 川原電子ビジネス専門学校　ゲームクリエイター科２年
+## 氏名：高橋 拓之
+<h2 id="1%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81">1.作品概要</h2>
+<ul>
+<li>タイトル
+<ul>
+<li>IslandFlight</li>
+</ul>
+</li>
+<li>学校
+<ul>
+<li>川原電子ビジネス専門学校</li>
+</ul>
+</li>
+<li>制作人数
+<ul>
+<li>1人</li>
+</ul>
+</li>
+<li>対応ハード
+<ul>
+<li>PC Windows11</li>
+</ul>
+</li>
+<li>使用言語
+<ul>
+<li>C++</li>
+<li>HLSL</li>
+</ul>
+</li>
+<li>開発環境
+<ul>
+<li>エンジン
+<ul>
+<li>学校内製の簡易エンジン（DirectX12）</li>
+</ul>
+</li>
+<li>プログラム
+<ul>
+<li>VisualStudio2026</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>リンク
+<ul>
+<li>Youtube https://www.youtube.com/watch?v=Ejp7brRotNI</li>
+<li>GitHub https://github.com/takahasihiroyuki/Island-Flight</li>
+</ul>
+</li>
+</ul>
+<h2 id="2%E3%82%B2%E3%83%BC%E3%83%A0%E5%86%85%E5%AE%B9">2.ゲーム内容</h2>
+<p>時間内にたくさんコインを集めよう！
+<img src="Images/GameScreen.png" alt="alt text"></p>
+<h2 id="3%E6%8A%80%E8%A1%93%E7%B4%B9%E4%BB%8B">3.技術紹介</h2>
+<h3 id="31-%E9%A3%9B%E8%A1%8C%E6%A9%9F%E3%81%AE%E7%89%A9%E7%90%86%E6%8C%99%E5%8B%95%E3%81%AE%E5%AE%9F%E8%A3%85">3.1 飛行機の物理挙動の実装</h3>
+<h5 id="%E6%9C%AC%E4%BD%9C%E3%81%A7%E3%81%AF%E8%A6%8B%E3%81%9F%E7%9B%AE%E3%81%A0%E3%81%91%E3%81%A7%E3%81%AA%E3%81%8F%E5%8A%9B%E3%81%AE%E9%96%A2%E4%BF%82%E3%82%92%E8%AA%AC%E6%98%8E%E3%81%A7%E3%81%8D%E3%82%8B%E9%A3%9B%E8%A1%8C%E6%8C%99%E5%8B%95%E3%82%92%E7%9B%AE%E6%A8%99%E3%81%AB%E7%BF%BC%E5%8D%98%E4%BD%8D%E3%81%AE%E7%89%A9%E7%90%86%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F">本作では、見た目だけでなく「力の関係を説明できる飛行挙動」を目標に、翼単位の物理モデルを実装しました。</h5>
+<h4 id="311-%E9%A3%9B%E8%A1%8C%E6%A9%9F%E3%81%AE%E6%8C%99%E5%8B%95%E3%81%AE%E5%AE%9F%E8%A3%85%E3%82%A2%E3%83%97%E3%83%AD%E3%83%BC%E3%83%81">3.1.1 飛行機の挙動の実装アプローチ</h4>
+<p>今回の作品では、飛行機という題材を
+単なる数値操作として扱うのではなく、
+どのような力の関係によって挙動が生まれているのかを
+自分の中でしっかり理解したいと考えました。</p>
+<p>そのため、揚力・抗力・モーメントを用いた
+物理モデルを採用しています。</p>
+<p>単に見た目をそれらしくするのではなく、
+「どの力が、どのように影響して今の挙動が生まれているのか」
+を自分の中で説明できる状態を目指して実装を行いました。</p>
+<h4 id="312-%E7%BF%BC%E3%82%92%E5%8D%98%E4%BD%8D%E3%81%A8%E3%81%97%E3%81%9F%E7%89%A9%E7%90%86%E3%83%A2%E3%83%87%E3%83%AB">3.1.2  翼を単位とした物理モデル</h4>
+<p>本作では、機体全体に一つの力を与えるのではなく、右主翼・左主翼・水平尾翼・垂直尾翼といった各翼が、
+それぞれ独立して力を発生させています。<br>
+翼ごとに果たす役割（回転）は異なりますが、
+本作では力の計算に用いる基本的な処理は共通としており、
+各翼は同一のクラスのインスタンスとして実装しています。<br>
+この構成により、翼を追加する場合も、
+翼のインスタンスを一つ追加するだけで対応できます。</p>
+<h4 id="313-%E5%8A%9B%E3%81%AE%E8%A8%88%E7%AE%97">3.1.3 力の計算</h4>
+<p><img src="Images/AircraftPower.png" alt="alt text"><br>
+実際に機体に作用する各力をどのように計算しているかについて説明します。<br>
+基本的に力はすべて三次元のベクトルとして扱っています。
+考慮している力は、
+重力、推力（プロペラによる前進力）、
+揚力（翼を上方向に押し上げる力）、
+抗力（進行方向と逆向きに作用する力）の四つです。<br>
+揚力と抗力はそれぞれの翼で計算し、四つの翼の力を合成しています。<br>
+そこに推力と重力を加えることで、
+機体全体に作用する合力を求めています。</p>
+<h4 id="314-%E7%A7%BB%E5%8B%95%E3%81%AE%E8%A8%88%E7%AE%97">3.1.4 移動の計算</h4>
+<p>ひとつ前で計算した力をもとに、機体の位置を更新します。
+流れとしては、力 → 加速度 → 速度 → 位置の流れです。<br>
+まず、力から加速度に変換します。具体的には、力を質量で割っています。
+（力は加速度と比例関係で今の実装では質量はほとんど意味を持っていないですが、機体重量の違いなどをパラメーターとして考慮したい時が来るかもしれないので念のため割り算しています）</p>
+<p>そのフレームの速度を求めるために、そのフレームの加速度（つまり加速度×1フレームの時間）を毎フレーム蓄積させます。つまり積分です。<br>
+さらに速度を積分し、次のポジションを求めています。
+これを毎フレーム繰り返します。</p>
+<h4 id="315-%E5%9B%9E%E8%BB%A2%E3%81%AE%E8%A8%88%E7%AE%97">3.1.5 回転の計算</h4>
+<p>続いて、機体の回転の計算について説明します。
+本作では、各翼で計算したモーメントを合成し、
+機体全体に作用するモーメントを求めています。</p>
+<h5 id="%E3%83%A2%E3%83%BC%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">モーメントについて</h5>
+<p><img src="Images/Moment.png" alt="alt text"></p>
+<p>回転の計算を行う前に、
+本作で用いているモーメントについて簡単に説明します。</p>
+<p>モーメントは三次元のベクトルで、
+ベクトルの大きさは回転の強さを、
+向きは回転軸の向きを表します。</p>
+<p>本作では、
+機体の重心から力の作用点へのベクトルと、
+その力との外積を用いてモーメントを計算しています。</p>
+<h5 id="%E8%A7%92%E9%80%9F%E5%BA%A6%E3%81%A8%E5%A7%BF%E5%8B%A2%E3%81%AE%E6%9B%B4%E6%96%B0">角速度と姿勢の更新</h5>
+<p>移動の計算と同様に、
+まずモーメントから角加速度を計算し、
+角加速度を積分することで角速度を求めます。
+さらに、この角速度を積分することで、
+機体の姿勢を毎フレーム更新しています。</p>
+<h4 id="316-%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E6%96%B9%E6%B3%95">3.1.6 デバッグ方法</h4>
+<p><img src="Images/DebugView.gif" alt="alt text">
+本作では、
+力やモーメントといった物理量を扱っているため、
+数値だけを追っていても挙動の原因を把握しにくい場面が多くありました。
+しかも、本作では、
+右主翼・左主翼・水平尾翼・垂直尾翼の
+四つの翼それぞれで力とモーメントを計算しています。
+さらに、モーメントは力の作用位置にも影響を受けるため、
+挙動がおかしくなった場合でも、</p>
+<p>どの翼が原因なのか</p>
+<p>どの力やモーメントが問題なのか</p>
+<p>を、
+機体の姿勢や数値ログだけから直感的に判断することは困難でした。<br>
+そこで、
+本作では物理挙動のデバッグ方法として、
+各翼で計算された力やモーメントを、3D空間上に矢印として可視化
+する仕組みを実装しました。</p>
+<p>このデバッグ表示により、
+挙動に違和感がある場合でも、<br>
+「どの翼の」「どの力・モーメントが」<br>
+原因になっているのかを即座に切り分けることができ、
+物理挙動の調整や修正を効率的に行えるようになりました。</p>
+<p>このように、物理挙動を可視化しながら確認できる環境を用意することで、
+実装だけでなく調整や仕様変更にも対応しやすい構成になっています。</p>
+<h4 id="317-%E3%81%93%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AE%E5%A4%B1%E6%95%97%E3%81%A8%E5%AD%A6%E3%81%B3">3.1.7 この実装の失敗と学び</h4>
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<p>当初は、物理的な正確さによって
+見た目のリアリティも大きく向上すると想定していました。<br>
+しかし実装を進める中で、
+物理的な正確さと視覚的な変化は必ずしも比例せず、
+見た目の変化に対して調整やデバッグの負担が大きくなる場面も多いことが分かりました。<br>
+本作ではその経験を通じて、
+「どこを物理として扱い、どこを割り切るか」
+という設計判断の重要性を学びました。</p>
+<h3 id="32-%E6%B5%B7%E3%81%AE%E6%8F%8F%E7%94%BB%E5%AE%9F%E8%A3%85">3.2 海の描画実装</h3>
+<h4 id="321-%E5%AE%9F%E8%A3%85%E3%81%AE%E5%85%A8%E4%BD%93%E6%A7%8B%E6%88%90">3.2.1 実装の全体構成</h4>
+<p>海の反射は、以下の流れで実装しています。</p>
+<ul>
+<li>反射用カメラの作成</li>
+<li>メインカメラを海面で鏡映した位置・向きに変換</li>
+<li>反射用カメラでシーンを描画し、レンダーテクスチャに出力</li>
+<li>そのテクスチャを海モデルに貼り付けて描画</li>
+<li>法線マップによるUV歪みとスクロールで波を表現</li>
+</ul>
+<p><img src="Images/ReflectedCamera.png" alt="alt text">
+この構成により、
+視点や機体の移動に応じて自然に変化する水面反射を実現しています。
+<img src="Images/Ocean.png" alt="alt text"></p>
+<h4 id="322-%E6%8F%8F%E7%94%BB%E6%99%82%E3%81%AE%E5%95%8F%E9%A1%8C">3.2.2 描画時の問題</h4>
+<p>反射用カメラを単純に鏡映した場合、</p>
+<ul>
+<li>本来映らないはずの水面下のオブジェクトが反射に映る</li>
+<li>逆に、映したいオブジェクトがクリップされる</li>
+</ul>
+<p>という描画になってしまいます。</p>
+<div style="display: flex; gap: 16px;">
+  <img src="Images/PointOffPlane.png" width="50%">
+  <img src="Images/PointOnPlane.png" width="50%">
+</div>
+これは図のように近クリップ面が海面と一致しないため起こっています。
+<h4 id="323-%E6%8F%8F%E7%94%BB%E6%99%82%E3%81%AE%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A7%A3%E6%B1%BA%E7%AD%96">3.2.3 描画時の問題の解決策</h4>
+<p>そこで、近クリップ面は使わず、シェーダー側で海面より下にあるかどうかを判定して描画を止める方法をとりました。</p>
+<div style="display: flex; gap: 16px;">
+  <img src="Images/SpherePlaneIntersection_Invalid.png" width="50%">
+  <img src="Images/SpherePlaneIntersection_Valid.png" width="50%">
+</div>
+まず、海面を 1 枚の平面 として考えます。
+（海面であるため、無限に続く平面として扱います。）
+<p>この平面より下にあるかどうかを判定する方法を考えます。
+平面より 上側か下側か を判定するために、
+平面が持つ 法線ベクトル を利用します。<br>
+もし判定している点が海面上にある場合、
+判定したい点と平面上の任意の点を結ぶベクトルは、
+平面の法線ベクトルと 90 度 の角度になります。<br>
+この性質を利用し、
+判定したい点と平面上の点を結ぶベクトルと、
+平面の法線ベクトルとの 内積 を計算します。<br>
+この内積が 負 になる場合、
+点は法線とは逆方向、つまり 平面より下側 にあると判定できます。<br>
+本作では、
+内積が負になる（海面より下にある）ピクセルは描画しない
+という処理を行うことで、
+反射描画時に海面下のオブジェクトが映り込まないようにしています。</p>
+<h3 id="33-%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B7%E3%83%B3%E3%82%B0%E6%8F%8F%E7%94%BB">3.3 インスタンシング描画</h3>
+<p>今回のゲームでは、1000個以上のオブジェクトを描画しています。
+さらに海の表現では、反射用にシーンをもう一度描画しているため、そのままだと処理が重くなります。</p>
+<p>ただし、使用しているモデルはローポリゴンなので、GPUの描画負荷自体はそこまで高くありませんでした。
+そこで原因を調べたところ、ボトルネックはGPUではなく、CPU側で大量のドローコール（Draw呼び出し）をしていることだと分かりました。</p>
+<p>この問題に対しては、対策としてインスタンス描画を導入しました。
+同じモデルを1個ずつ描画するのではなく、複数個分の情報（行列など）をまとめて送って、1回のDrawでまとめて描画する方式です。
+これにより、CPU側の呼び出し回数を抑え、描画処理を軽量化しています。</p>
+<p>導入後は、CPU負荷が目に見えて下がり、フレームレートが安定しました。</p>
+<h3 id="34-fog%E3%81%A8dof">3.4 FOGとDOF</h3>
+<p>画面全体の見栄えを整えるため、
+ポストエフェクトとして FOG（霧表現）と
+DOF（被写界深度）を実装しました。</p>
+<p>FOG は遠距離のオブジェクトを自然にフェードアウトさせ、
+空間の奥行きを出しつつ、画面が煩雑にならないようにしています。</p>
+<p>DOF はカメラから遠いオブジェクトをぼかすことで、
+画面全体をすっきり見せることを目的としています。</p>
+<p>いずれも見た目の印象を優先しつつ、
+操作性や視認性を損なわないよう、
+効果は控えめに調整しています。</p>
+<h3 id="fog%E3%81%A8dof%E3%81%AA%E3%81%97">FOGとDOFなし</h3>
+<p><img src="Images/NonFOGandDOF.png" alt="alt text"></p>
+<h3 id="fog%E3%81%82%E3%82%8A">FOGあり</h3>
+<p><img src="Images/FOG.png" alt="alt text"></p>
+<h3 id="dof%E3%81%82%E3%82%8A">DOFあり</h3>
+<p><img src="Images/DOF.png" alt="alt text"></p>
+<h2 id="4%E5%B7%A5%E5%A4%AB%E3%81%97%E3%81%9F%E7%82%B9">4.工夫した点</h2>
+<h3 id="41-%E3%82%B3%E3%82%A4%E3%83%B3%E3%81%AE%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0">4.1 コインのアルゴリズム</h3>
+<p>最初はコインを完全ランダムで出現させていました。
+しかし、完全ランダムな配置ではプレイヤーの現在位置に関係なく
+遠距離にコインが集中してしまう場合があり、
+回収しにくさやプレイテンポの悪さにつながっていました。</p>
+<p>そこで、プレイヤーとの距離と向きを考慮し、
+近い位置ほど選ばれやすくなるよう出現確率に重みを付けた
+重み付き抽選を採用しました。</p>
+<p>これによりランダム性は保ちつつも、
+自然に回収しやすい位置にコインが配置されやすくなり、
+回収テンポの安定化とプレイ感の改善につながりました。</p>
+<h3 id="42-%E3%81%B0%E3%81%AD%E3%82%AB%E3%83%A1%E3%83%A9%E3%81%AE%E5%AE%9F%E8%A3%85">4.2 ばねカメラの実装</h3>
+<p>飛行機に対してカメラをそのまま追従させると、動きが軽く見えてしまうという課題がありました。
+そこで、カメラの追従をばねの物理モデルとして実装しました。
+その結果、視覚的にも機体の重量感やスピード感を表現できています。</p>
+<h4 id="%E6%99%AE%E9%80%9A%E3%81%AE%E3%82%AB%E3%83%A1%E3%83%A9">普通のカメラ</h4>
+<p><img src="Images/NonSpringCamera.gif" alt="alt text"></p>
+<h4 id="%E3%81%B0%E3%81%AD%E3%82%AB%E3%83%A1%E3%83%A9">ばねカメラ</h4>
+<p><img src="Images/SpringCamera.gif" alt="alt text"></p>
+<h2 id="5%E4%BB%8A%E5%BE%8C%E3%81%AE%E5%B1%95%E6%9C%9B">5.今後の展望</h2>
+<h3 id="51-screen-space-reflectionssr%E3%81%AE%E5%B0%8E%E5%85%A5">5.1 Screen Space Reflection（SSR）の導入</h3>
+<p>一つ目は、SSR（Screen Space Reflection）の導入です。
+SSRは、画面上に描画された情報を利用して反射を計算する手法で、
+追加のジオメトリ描画を必要とせず、比較的低コストで反射表現を実現できる点が特徴です。</p>
+<p>描画結果に依存するため、画面外の情報が反映されないなどの制約はありますが、
+平面に限定されない反射表現が可能であり、
+水面や機体表面など、さまざまなオブジェクトへの応用が期待できます。</p>
+<p>今後は、既存の平面反射表現と用途に応じて使い分けながら、
+SSRの導入にも挑戦し、表現の幅をさらに広げていきたいと考えています。</p>
+<h3 id="52-%E5%AE%89%E5%AE%9A%E3%81%97%E3%81%9F%E8%A1%9D%E7%AA%81%E3%83%AC%E3%82%B9%E3%83%9D%E3%83%B3%E3%82%B9%E3%81%AE%E5%AE%9F%E8%A3%85">5.2 安定した衝突レスポンスの実装</h3>
+<p>二つ目は、飛行機とオブジェクトの衝突時の挙動改善です。
+現在の実装では、衝突が発生した際に機体の速度や回転が大きく変化し、状況によっては挙動が不安定になり、物理的に破綻した動きが発生する場合があります。</p>
+<p>現時点では、この不安定な挙動が発生する根本的な原因は特定できていませんが、衝突時に加えられる力や回転量の扱い、数値的な安定性などに課題があると考えています。</p>
+<p>今後は、衝突時の情報を可視化・整理しながら原因の切り分けを行い、反発量や角速度の制限、減衰処理などを段階的に導入することで、
+物理的に破綻しない安定した衝突レスポンスの実装を目指したいと考えています。</p>
+<h3 id="53%E3%82%B2%E3%83%BC%E3%83%A0%E6%80%A7%E3%81%AE%E6%8B%A1%E5%BC%B5">5.3ゲーム性の拡張</h3>
+<p>三つ目は、ゲーム性の拡張です。
+本作品は、コインを集めるという分かりやすい目的を持つ一方、ゲームの構造が比較的シンプルで、プレイ展開が単調になりやすいと感じています。</p>
+<p>ただし現状では、飛行機の挙動に関してゲームの成立そのものに影響する問題が確認されており、
+まずはその解消を最優先すべきだと判断しました。</p>
+<p>今後は、基礎的な挙動の安定化を進めた上で、ゲームとしての完成度をさらに高めていきたいと考えています。</p>
+
+</body>
+</html>
