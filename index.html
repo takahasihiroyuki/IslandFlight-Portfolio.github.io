@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>README.md</title>
@@ -505,7 +505,7 @@ code {
 </ul>
 <h2 id="2ゲーム内容">2.ゲーム内容</h2>
 <p>時間内にたくさんコインを集めよう！
-<img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/GameScreen.png" alt="alt text"></p>
+<img src="Images/GameScreen.png" alt="alt text"></p>
 <h2 id="3技術紹介">3.技術紹介</h2>
 <h3 id="31-飛行機の物理挙動の実装">3.1 飛行機の物理挙動の実装</h3>
 <h5 id="本作では見た目だけでなく力の関係を説明できる飛行挙動を目標に翼単位の物理モデルを実装しました">本作では、見た目だけでなく「力の関係を説明できる飛行挙動」を目標に、翼単位の物理モデルを実装しました。</h5>
@@ -528,7 +528,7 @@ code {
 この構成により、翼を追加する場合も、
 翼のインスタンスを一つ追加するだけで対応できます。</p>
 <h4 id="313-力の計算">3.1.3 力の計算</h4>
-<p><img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/AircraftPower.png" alt="alt text"><br>
+<p><img src="Images/AircraftPower.png" alt="alt text"><br>
 実際に機体に作用する各力をどのように計算しているかについて説明します。<br>
 基本的に力はすべて三次元のベクトルとして扱っています。
 考慮している力は、
@@ -551,7 +551,7 @@ code {
 本作では、各翼で計算したモーメントを合成し、
 機体全体に作用するモーメントを求めています。</p>
 <h5 id="モーメントについて">モーメントについて</h5>
-<p><img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/Moment.png" alt="alt text"></p>
+<p><img src="Images/Moment.png" alt="alt text"></p>
 <p>回転の計算を行う前に、
 本作で用いているモーメントについて簡単に説明します。</p>
 <p>モーメントは三次元のベクトルで、
@@ -567,7 +567,7 @@ code {
 さらに、この角速度を積分することで、
 機体の姿勢を毎フレーム更新しています。</p>
 <h4 id="316-デバッグ方法">3.1.6 デバッグ方法</h4>
-<p><img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/DebugView.gif" alt="alt text">
+<p><img src="Images/DebugView.gif" alt="alt text">
 本作では、
 力やモーメントといった物理量を扱っているため、
 数値だけを追っていても挙動の原因を把握しにくい場面が多くありました。
@@ -616,10 +616,10 @@ code {
 <li>そのテクスチャを海モデルに貼り付けて描画</li>
 <li>法線マップによるUV歪みとスクロールで波を表現</li>
 </ul>
-<p><img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/ReflectedCamera.png" alt="alt text">
+<p><img src="Images/ReflectedCamera.png" alt="alt text">
 この構成により、
 視点や機体の移動に応じて自然に変化する水面反射を実現しています。
-<img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/Ocean.png" alt="alt text"></p>
+<img src="Images/Ocean.png" alt="alt text"></p>
 <h4 id="322-描画時の問題">3.2.2 描画時の問題</h4>
 <p>反射用カメラを単純に鏡映した場合、</p>
 <ul>
@@ -628,15 +628,15 @@ code {
 </ul>
 <p>という描画になってしまいます。</p>
 <div style="display: flex; gap: 16px;">
-  <img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/SpherePlaneIntersection_Invalid.png" width="50%">
-  <img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/SpherePlaneIntersection_Valid.png" width="50%">
+  <img src="Images/SpherePlaneIntersection_Invalid.png" width="50%">
+  <img src="Images/SpherePlaneIntersection_Valid.png" width="50%">
   </div>
 <p>これは図のように近クリップ面が海面と一致しないため起こっています。</p>
 <h4 id="323-描画時の問題の解決策">3.2.3 描画時の問題の解決策</h4>
 <p>そこで、近クリップ面は使わず、シェーダー側で海面より下にあるかどうかを判定して描画を止める方法をとりました。</p>
 <div style="display: flex; gap: 16px;">
-  <img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/PointOffPlane.png" width="50%">
-  <img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/PointOnPlane.png" width="50%">
+  <img src="Images/PointOffPlane.png" width="50%">
+  <img src="Images/PointOnPlane.png" width="50%">
 </div>
 まず、海面を 1 枚の平面 として考えます。
 （海面であるため、無限に続く平面として扱います。）
@@ -707,11 +707,11 @@ DOF（被写界深度）を実装しました。</p>
 操作性や視認性を損なわないよう、
 効果は控えめに調整しています。</p>
 <h3 id="fogとdofなし">FOGとDOFなし</h3>
-<p><img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/NonFOGandDOF.png" alt="alt text"></p>
+<p><img src="Images/NonFOGandDOF.png" alt="alt text"></p>
 <h3 id="fogあり">FOGあり</h3>
-<p><img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/FOG.png" alt="alt text"></p>
+<p><img src="Images/FOG.png" alt="alt text"></p>
 <h3 id="dofあり">DOFあり</h3>
-<p><img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/DOF.png" alt="alt text"></p>
+<p><img src="Images/DOF.png" alt="alt text"></p>
 <h2 id="4工夫した点">4.工夫した点</h2>
 <h3 id="41-コインのアルゴリズム">4.1 コインのアルゴリズム</h3>
 <p>最初はコインを完全ランダムで出現させていました。
@@ -729,9 +729,9 @@ DOF（被写界深度）を実装しました。</p>
 そこで、カメラの追従をばねの物理モデルとして実装しました。
 その結果、視覚的にも機体の重量感やスピード感を表現できています。</p>
 <h4 id="普通のカメラ">普通のカメラ</h4>
-<p><img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/NonSpringCamera.gif" alt="alt text"></p>
+<p><img src="Images/NonSpringCamera.gif" alt="alt text"></p>
 <h4 id="ばねカメラ">ばねカメラ</h4>
-<p><img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/SpringCamera.gif" alt="alt text"></p>
+<p><img src="Images/SpringCamera.gif" alt="alt text"></p>
 <h2 id="5コードについて">5.コードについて</h2>
 <h3 id="51-設計方針とシングルトンの扱い">5.1 設計方針とシングルトンの扱い</h3>
 <p>本作では、設計において
@@ -780,8 +780,8 @@ AIの回答をそのまま自分の答えにするのではなく、自分でも
 <p>以下の画像は、実際にAIとやり取りしながら勉強した内容の一部です。</p>
 <p>普段は数学だけでなく、プログラミングや物理、設計など、さまざまな分野の学習にAIを使っています。今回は、その中でも疑問を分けながら考えていく過程が伝わりやすいものとして、数学について学習した例を掲載しています。</p>
 <div style="display: flex; gap: 16px;">
-  <img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/AIStudyTopics.png" width="50%">
-  <img src="file:///c:/Users/高橋拓之/Desktop/IslandFlight-Portfolio.github.io/Images/AIStudyDialogue.png" width="60%">
+  <img src="Images/AIStudyTopics.png" width="50%">
+  <img src="Images/AIStudyDialogue.png" width="60%">
   </div>
 <p>ChatGPTプロジェクト</p>
 <ul>
@@ -805,3 +805,4 @@ AIの回答をそのまま自分の答えにするのではなく、自分でも
 
 </body>
 </html>
+
